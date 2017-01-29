@@ -72,8 +72,8 @@
       <HintPath>packages\Skogsaas.Monolith.Plugins.ConsoleLogger.1.0.6237.16957\lib\net452\Skogsaas.Monolith.Plugins.ConsoleLogger.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Skogsaas.Monolith.Plugins.RestJson, Version=1.0.6237.17209, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Skogsaas.Monolith.Plugins.RestJson.1.0.6237.17209\lib\net452\Skogsaas.Monolith.Plugins.RestJson.dll</HintPath>
+    <Reference Include="Skogsaas.Monolith.Plugins.RestJson, Version=1.0.6238.37065, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skogsaas.Monolith.Plugins.RestJson.1.0.6238.37065\lib\net452\Skogsaas.Monolith.Plugins.RestJson.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
