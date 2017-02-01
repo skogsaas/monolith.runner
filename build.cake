@@ -1,17 +1,31 @@
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
+var source = Argument("source", "Z:/NuGet");
 var nugetConfig = "./nuget.config";
+var packages = "./packages";
 var artifacts = "./artifacts/";
 var solution = "./Runner.sln";
+var project = "./Runner/Runner.csproj";
 
 var nugetRestoreSettings = new NuGetRestoreSettings
 	{
-		ConfigFile = nugetConfig
+		ConfigFile = nugetConfig,
+		PackagesDirectory = packages
 	};
 
 var nugetUpdateSettings = new NuGetUpdateSettings
 	{
 		//ConfigFile = nugetConfig
+	};
+
+var nugetPackSettings = new NuGetPackSettings
+	{
+		OutputDirectory = artifacts
+	};
+
+var nugetPushSettings = new NuGetPushSettings
+	{
+		Source = source
 	};
 
 var msbuildSettings = new MSBuildSettings 
@@ -32,14 +46,14 @@ Task("Restore")
 	.IsDependentOn("Clean")
 	.Does(() => 
 {
-	NuGetRestore(solution, nugetRestoreSettings);
+	NuGetRestore(project, nugetRestoreSettings);
 });
 
 Task("Update")
 	.IsDependentOn("Restore")
 	.Does(() =>
 {
-	NuGetUpdate(solution, nugetUpdateSettings);
+	NuGetUpdate(project, nugetUpdateSettings);
 });
 
 Task("Build")
@@ -48,7 +62,23 @@ Task("Build")
 	.IsDependentOn("Update")
 	.Does(() =>
 {
-	MSBuild(solution, msbuildSettings);
+	MSBuild(project, msbuildSettings);
+});
+
+Task("Package")
+	.IsDependentOn("Build")
+	.Does(() =>
+{
+	NuGetPack(project, nugetPackSettings);
+});
+
+Task("Push")
+	.IsDependentOn("Package")
+	.Does(() =>
+{
+	var nupkgs = GetFiles(System.IO.Path.Combine(artifacts, "*.nupkg"));
+
+	NuGetPush(nupkgs, nugetPushSettings);
 });
 
 Task("Default")
