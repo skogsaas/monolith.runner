@@ -1,6 +1,6 @@
 var target = Argument("target", "Default");
 var configuration = Argument("configuration", "Release");
-var nugetConfig = "Z:/NuGet/Config/NuGet.config";
+var nugetConfig = "./nuget.config";
 var artifacts = "./artifacts/";
 var solution = "./Runner.sln";
 
