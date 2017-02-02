@@ -20,7 +20,8 @@ var nugetUpdateSettings = new NuGetUpdateSettings
 
 var nugetPackSettings = new NuGetPackSettings
 	{
-		OutputDirectory = artifacts
+		OutputDirectory = artifacts,
+		Properties = new Dictionary<string, string>{{"Configuration", configuration}}
 	};
 
 var nugetPushSettings = new NuGetPushSettings
@@ -81,11 +82,6 @@ Task("Push")
 	NuGetPush(nupkgs, nugetPushSettings);
 });
 
-Task("Default")
-	.IsDependentOn("Build")
-	.Does(() =>
-{
-  
-});
+Task("Default").IsDependentOn("Build");
 
 RunTarget(target);
