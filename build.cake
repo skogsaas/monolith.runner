@@ -1,6 +1,6 @@
 var target = Argument("target", "Default");
-var configuration = Argument("configuration", "Release");
-var source = Argument("source", "Z:/NuGet");
+var configuration = Argument("buildconfiguration", "Release");
+var source = Argument("buildsource", "Z:/NuGet");
 var nugetConfig = "./nuget.config";
 var packages = "./packages";
 var artifacts = "./artifacts/";
