@@ -36,6 +36,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\M2Mqtt.4.3.0.0\lib\net45\M2Mqtt.Net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Nancy, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Nancy.1.4.3\lib\net40\Nancy.dll</HintPath>
       <Private>True</Private>
@@ -70,6 +74,10 @@
     </Reference>
     <Reference Include="Skogsaas.Monolith.Plugins.ConsoleLogger, Version=1.0.6237.16957, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Skogsaas.Monolith.Plugins.ConsoleLogger.1.0.6237.16957\lib\net452\Skogsaas.Monolith.Plugins.ConsoleLogger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Skogsaas.Monolith.Plugins.MqttBridge, Version=1.0.6244.41930, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Skogsaas.Monolith.Plugins.MqttBridge.1.0.6244.41930\lib\net452\Skogsaas.Monolith.Plugins.MqttBridge.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Skogsaas.Monolith.Plugins.RestJson, Version=1.0.6238.37065, Culture=neutral, processorArchitecture=MSIL">
