@@ -1,7 +1,6 @@
 var target = Argument("target", "Default");
 var configuration = Argument("buildconfiguration", "Release");
 var source = Argument("buildsource", "Z:/NuGet");
-var nugetConfig = "./nuget.config";
 var packages = "./packages";
 var artifacts = "./artifacts/";
 var solution = "./Runner.sln";
@@ -9,13 +8,11 @@ var project = "./Runner/Runner.csproj";
 
 var nugetRestoreSettings = new NuGetRestoreSettings
 	{
-		ConfigFile = nugetConfig,
 		PackagesDirectory = packages
 	};
 
 var nugetUpdateSettings = new NuGetUpdateSettings
 	{
-		//ConfigFile = nugetConfig
 	};
 
 var nugetPackSettings = new NuGetPackSettings
